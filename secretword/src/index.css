@@ -1,0 +1,44 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica;
+  transition: background-color 2s;
+  color: white;
+  animation: backgroundChangeColor 30s infinite;
+}
+
+@keyframes backgroundChangeColor {
+  0%, 100% {
+    background-color: rgb(21, 38, 134);
+  }
+  25% {
+    background-color: rgb(6, 20, 97);
+  }
+  75% {
+    background-color: rgb(5, 16, 77);
+  }
+}
+
+button{
+  background: #1646a0;
+  color: #FFF;
+  padding: 0 45px;
+  border: 2px solid #FFF;
+  border-radius: 25px;
+  height: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: .4s
+}
+
+button:hover {
+  background-color: #0923af;
+  transform: scale(1.03);
+  box-shadow: 0px 0px 1px 1px white;
+}
