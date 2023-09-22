@@ -34,12 +34,10 @@ function App() {
   const pickWordAndCategory = useCallback(() => {
     // pick a random category
     const categories = Object.keys(words);
-    const category =
-      categories[Math.floor(Math.random() * Object.keys(categories).length)];
+    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)];
 
     // pick a random word
-    const word =
-      words[category][Math.floor(Math.random() * words[category].length)];
+    const word = words[category][Math.floor(Math.random() * words[category].length)];
 
     return { category, word };
   }, [words]);
@@ -51,8 +49,6 @@ function App() {
 
     // choose a word
     const { category, word } = pickWordAndCategory();
-
-    console.log(category, word);
 
     let wordLetters = word.split("");
 
@@ -93,8 +89,6 @@ function App() {
     }
   };
 
-  console.log(wrongLetters);
-
   // restart the game
   const retry = () => {
     setScore(0);
@@ -124,11 +118,14 @@ function App() {
 
     // win condition
     if (guessedLetters.length === uniqueLetters.length) {
-      // add score
-      setScore((actualScore) => (actualScore += 100));
 
-      // restart game with new word
-      startGame();
+      if (guessedLetters.length !== 0) {
+        // add score
+        setScore((actualScore) => (actualScore += 100));
+
+        // restart game with new word
+        startGame();
+      }
     }
   }, [guessedLetters, letters, startGame]);
 
